@@ -6,7 +6,4 @@ import Root from './routers/index';
 //     module.hot.accept();
 // }
 
-ReactDOM.render(
-    <Root />,
-    document.getElementById('root')
-);
+ReactDOM.render(<Root />, document.getElementById('root'));

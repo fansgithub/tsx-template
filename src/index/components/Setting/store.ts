@@ -1,6 +1,6 @@
-import { observable } from 'mobx'
+import { observable } from 'mobx';
 class Store {
     @observable
-    name = ''
+    name = '';
 }
-export default new Store()
+export default new Store();

@@ -5,8 +5,8 @@ import App from '../components/App';
 
 const Root = () => (
     <BrowserRouter>
-        <Route path="/*" component={App}/>
+        <Route path="/*" component={App} />
     </BrowserRouter>
-)
+);
 
 export default Root;

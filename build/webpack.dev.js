@@ -14,6 +14,7 @@ const devConfig = {
   devServer: {
     contentBase: './dist',
     hot: true,
+    open: true,
     stats: 'errors-only',
   },
   devtool: 'cheap-source-map',
