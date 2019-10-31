@@ -16,9 +16,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
     "experimentalDecorators": true,
     //"noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./src/index",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@services/*": ["services/*"],
+      "@views/*": ["views/*"],
+      "@locales/*": ["locales/*"],
+      "@constants/*": ["constants/*"],
+      "@utils/*": ["utils/*"],
+      "@assets/*": ["assets/*"],
+      "@theme": ["theme.less"]
+  },
   },
   "files": [
     "./node_modules/tsx-control-statements/index.d.tsx"

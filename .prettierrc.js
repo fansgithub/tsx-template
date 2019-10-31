@@ -15,5 +15,5 @@ module.exports = {
     jsxBracketSameLine: true,
     //为单行箭头函数的参数添加圆括号
     arrowParens: 'always',
-    parser: 'typescript'
+    parser: 'typescript',
 };

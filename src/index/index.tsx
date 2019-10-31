@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './routers/index';
+import App from '@views/app';
+import './index.less';
 
-// if(module.hot){
-//     module.hot.accept();
-// }
-
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
