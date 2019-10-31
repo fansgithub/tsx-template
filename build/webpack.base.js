@@ -7,6 +7,7 @@ const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const projectRoot = process.cwd();
 const gitRevisionCallback = (str, err) => {
@@ -33,7 +34,7 @@ const setMPA = () => {
         inlineSource: ".css$",
         template: path.join(projectRoot, `./src/${pageName}/index.html`),
         filename: `${pageName}.html`,
-        favicon: "./assets/images/favicon.ico",
+        favicon: `./src/${pageName}/assets/images/favicon.ico`,
         chunks: [pageName],
         inject: true,
         banner: {
@@ -110,7 +111,7 @@ module.exports = {
             loader: "url-loader",
             options: {
               limit: 40 * 1024,
-              outputPath: "/img"
+              outputPath: "./img"
             }
           }
         ]
@@ -129,6 +130,12 @@ module.exports = {
     ]
   },
   resolve: {
+    plugins: [
+      new TsconfigPathsPlugin({
+          configFile: path.resolve('tsconfig.json'),
+          extensions: ['.tsx', '.ts', '.js', '.less', '.json']
+      })
+    ],
     extensions: [".js", ".ts", ".tsx"]
   },
   plugins: [
