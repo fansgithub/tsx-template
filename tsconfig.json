@@ -21,7 +21,7 @@
     "experimentalDecorators": true,
     //"noEmit": true,
     "jsx": "react",
-    "baseUrl": "./src/index",
+    "baseUrl": "./src",
     "paths": {
       "@views/*": ["views/*"],
       "@components/*": ["components/*"],
