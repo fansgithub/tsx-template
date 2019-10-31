@@ -13,7 +13,6 @@ const devConfig = {
   ],
   devServer: {
     hot: true,
-    open: true,
     stats: 'errors-only',
   },
   devtool: 'cheap-source-map',

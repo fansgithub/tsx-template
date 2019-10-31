@@ -3,6 +3,11 @@ declare module '*.svg' {
     export default content;
 }
 
+declare module '*.svg' {
+    const content: any;
+    export default content;
+}
+
 declare module '*.png' {
     const content: any;
     export default content;
@@ -20,6 +25,7 @@ declare module '*.gif' {
     export default content;
 }
 
+// for css-module
 declare module '*.scss' {
     const content: any;
     export = content;

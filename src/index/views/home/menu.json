@@ -1,0 +1,334 @@
+{
+    "code": "CODE_0000", 
+    "msg": "请求成功", 
+    "data": [
+        {
+            "id": "0edbf26ac63d475c9c2d6c439e03aab", 
+            "pid": "root", 
+            "name": "GIS实时监测", 
+            "fdesc": 0, 
+            "isEnabled": 1, 
+            "furl": "", 
+            "imgUlr": "environment", 
+            "note": "GIS实时监测", 
+            "superfun": "0", 
+            "children": [
+                {
+                    "id": "0edbf26ac63d475c9c2d6c439e03aabf", 
+                    "pid": "0edbf26ac63d475c9c2d6c439e03aab", 
+                    "name": "地图", 
+                    "fdesc": 0, 
+                    "isEnabled": 1, 
+                    "furl": "map", 
+                    "imgUlr": "", 
+                    "note": "地图", 
+                    "superfun": "0", 
+                    "children": null
+                }
+            ]
+        }, 
+        {
+            "id": "ed0ca29214854dadb96e24804e5bbd9b", 
+            "pid": "root", 
+            "name": "实时监测", 
+            "fdesc": 10, 
+            "isEnabled": 1, 
+            "furl": "", 
+            "imgUlr": "warning", 
+            "note": "", 
+            "superfun": "0", 
+            "children": [
+                {
+                    "id": "1c857d6f884a4a638583c27ce0bb7f29", 
+                    "pid": "ed0ca29214854dadb96e24804e5bbd9b", 
+                    "name": "最新站点信息", 
+                    "fdesc": 11, 
+                    "isEnabled": 1, 
+                    "furl": "newest", 
+                    "imgUlr": null, 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "e85e07c9a88344f2bf39e4ba4ec5ffda", 
+                    "pid": "ed0ca29214854dadb96e24804e5bbd9b", 
+                    "name": "报警历史查询", 
+                    "fdesc": 12, 
+                    "isEnabled": 1, 
+                    "furl": "alarm", 
+                    "imgUlr": null, 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }]
+        }, 
+        {
+            "id": "28ec994658e04825942cfd9c9e176b5e", 
+            "pid": "root", 
+            "name": "查询统计", 
+            "fdesc": 30, 
+            "isEnabled": 1, 
+            "furl": "", 
+            "imgUlr": "search", 
+            "note": null, 
+            "superfun": "0", 
+            "children": [
+                {
+                    "id": "c57a0dd0f3f643fbb5971efcea87ee2f", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "压力日月年查询", 
+                    "fdesc": 31, 
+                    "isEnabled": 1, 
+                    "furl": "pressure", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "56034872635c4af189a86cc994d2daa7", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "压力月逐日查询", 
+                    "fdesc": 32, 
+                    "isEnabled": 1, 
+                    "furl": "dayPressure", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "ac7adfc37add48879da3a06a18197d7a", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "压力年逐月统计", 
+                    "fdesc": 33, 
+                    "isEnabled": 1, 
+                    "furl": "monthPressure", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                },
+                {
+                    "id": "ac7adfc37add48879da3a06a18197d7b", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "流量日月年查询", 
+                    "fdesc": 33, 
+                    "isEnabled": 1, 
+                    "furl": "flow", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                },
+                {
+                    "id": "ac7adfc37add48879da3a06a18197d7c", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "流量月逐日统计", 
+                    "fdesc": 33, 
+                    "isEnabled": 1, 
+                    "furl": "dayStatistics", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                },
+                {
+                    "id": "ac7adfc37add48879da3a06a18197d7d", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "流量年逐月统计", 
+                    "fdesc": 33, 
+                    "isEnabled": 1, 
+                    "furl": "monthStatistics", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                },
+                {
+                    "id": "ac7adfc37add48879da3a06a18197d7e", 
+                    "pid": "28ec994658e04825942cfd9c9e176b5e", 
+                    "name": "操作历史查询", 
+                    "fdesc": 33, 
+                    "isEnabled": 1, 
+                    "furl": "history", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }
+            ]
+        }, 
+        {
+            "id": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+            "pid": "root", 
+            "name": "基础信息管理", 
+            "fdesc": 40, 
+            "isEnabled": 1, 
+            "furl": "", 
+            "imgUlr": "database", 
+            "note": "", 
+            "superfun": "0", 
+            "children": [
+                {
+                    "id": "5740b00f1c3443d5a02e62acf565fb7e", 
+                    "pid": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+                    "name": "闸门基础信息", 
+                    "fdesc": 41, 
+                    "isEnabled": 1, 
+                    "furl": "valve", 
+                    "imgUlr": "1", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "68748a9189984e4194660f60d89e0144", 
+                    "pid": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+                    "name": "闸门参数上下限", 
+                    "fdesc": 42, 
+                    "isEnabled": 1, 
+                    "furl": "threshold", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "68748a9189984e4194660f60d89e0145", 
+                    "pid": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+                    "name": "服务器IP配置", 
+                    "fdesc": 42, 
+                    "isEnabled": 1, 
+                    "furl": "protocol", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "68748a9189984e4194660f60d89e0146", 
+                    "pid": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+                    "name": "数据参数初始化", 
+                    "fdesc": 42, 
+                    "isEnabled": 1, 
+                    "furl": "initialize", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "68748a9189984e4194660f60d89e0147", 
+                    "pid": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+                    "name": "数据参数分配", 
+                    "fdesc": 42, 
+                    "isEnabled": 1, 
+                    "furl": "station", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "68748a9189984e4194660f60d89e0148", 
+                    "pid": "9f07ee8451df4f4f8ad3011ac004b0ec", 
+                    "name": "数据参数维护", 
+                    "fdesc": 42, 
+                    "isEnabled": 1, 
+                    "furl": "param", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }
+            ]
+        },
+        {
+            "id": "3e0183a912f949779d4157b3241455ff", 
+            "pid": "root", 
+            "name": "系统管理", 
+            "fdesc": 90, 
+            "isEnabled": 1, 
+            "furl": "", 
+            "imgUlr": "setting", 
+            "note": "系统管理", 
+            "superfun": "0", 
+            "children": [
+                {
+                    "id": "45a2d1f0dac741739884e4f0b60d747b", 
+                    "pid": "3e0183a912f949779d4157b3241455ff", 
+                    "name": "用户管理", 
+                    "fdesc": 91, 
+                    "isEnabled": 1, 
+                    "furl": "user", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "71a3f970d03f429889f3a9ff2793419c", 
+                    "pid": "3e0183a912f949779d4157b3241455ff", 
+                    "name": "角色管理", 
+                    "fdesc": 92, 
+                    "isEnabled": 1, 
+                    "furl": "role", 
+                    "imgUlr": "/image/system/menu/dian.png", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "d276316d34794ac4beb8afd11b9adcec", 
+                    "pid": "3e0183a912f949779d4157b3241455ff", 
+                    "name": "功能管理", 
+                    "fdesc": 94, 
+                    "isEnabled": 1, 
+                    "furl": "function", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "1", 
+                    "children": null
+                }, 
+                {
+                    "id": "b1580c5d89b3417ca098c0f6ba9aeb50", 
+                    "pid": "3e0183a912f949779d4157b3241455ff", 
+                    "name": "部门管理", 
+                    "fdesc": 95, 
+                    "isEnabled": 1, 
+                    "furl": "department", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "0", 
+                    "children": null
+                }, 
+                {
+                    "id": "46d6d0e1c5134e8ba60082a7223f4ded", 
+                    "pid": "3e0183a912f949779d4157b3241455ff", 
+                    "name": "数据字典管理", 
+                    "fdesc": 96, 
+                    "isEnabled": 1, 
+                    "furl": "dataDictionary", 
+                    "imgUlr": "", 
+                    "note": "", 
+                    "superfun": "1", 
+                    "children": null
+                }
+            ]
+        },
+        {
+            "id": "586b65b2188c49d6933f0f354f0b23c9", 
+            "pid": "root", 
+            "name": "退出登录", 
+            "fdesc": 50, 
+            "isEnabled": 1, 
+            "furl": "loginOut", 
+            "imgUlr": "logout", 
+            "note": "", 
+            "superfun": "0", 
+            "children": null
+        }
+    ]
+}

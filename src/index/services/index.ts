@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig as _AxiosRequestConfig, Method } from 'axios';
-import * as qs from 'qs';
+import qs from 'qs';
 import { message } from 'antd';
 
 export interface AxiosRequestConfig extends _AxiosRequestConfig {

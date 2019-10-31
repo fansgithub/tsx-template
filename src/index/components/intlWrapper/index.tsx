@@ -9,6 +9,7 @@ import { setCookie } from '@utils/index';
 import { COOKIE_KEYS } from '@constants/index';
 import PageLoading from '@components/PageLoading';
 import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/loader';
+
 import './index.less';
 
 interface IProps {
@@ -44,7 +45,7 @@ export default function IntlWrapper({ children }: IProps) {
         return <PageLoading />;
     }
     const selectLanguage = (
-        <Select className="intl-select-component" onChange={onSelectLocale} value={currentLocale}>
+        <Select className="intlSelect" onChange={onSelectLocale} value={currentLocale}>
             {SUPPOER_LOCALES.map((l) => (
                 <Select.Option key={l.value} value={l.value}>
                     {l.name}

@@ -4,7 +4,7 @@ import './index.less';
 
 function PageLoading() {
     return (
-        <div className="page-loading-component">
+        <div className="componet-page-loading">
             <Spin className="spin" />
         </div>
     );

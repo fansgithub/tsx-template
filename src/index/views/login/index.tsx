@@ -30,14 +30,19 @@ function Login({ form }: IProps) {
 
     const { getFieldDecorator } = form;
     return (
-        <div className="login-page">
+        <div className="login">
             <Form onSubmit={submit} className="login-form">
                 <div className="logoBox">
-                    <div className="system-title">React Template</div>
+                    <h2 className="title">React Template</h2>
                 </div>
                 <FormItem hasFeedback>
                     {getFieldDecorator('username', {
-                        rules: [{ required: true }],
+                        rules: [
+                            {
+                                required: true,
+                                message: '用户名不能为空',
+                            },
+                        ],
                     })(
                         <Input
                             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -47,7 +52,12 @@ function Login({ form }: IProps) {
                 </FormItem>
                 <FormItem hasFeedback>
                     {getFieldDecorator('password', {
-                        rules: [{ required: true }],
+                        rules: [
+                            {
+                                required: true,
+                                message: '请输入密码',
+                            },
+                        ],
                     })(
                         <Input
                             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -62,7 +72,7 @@ function Login({ form }: IProps) {
                     </Button>
                 </FormItem>
             </Form>
-            <div className="copyright">© 2019 版权信息</div>
+            <div className="copyright">© 请修改此处的版权信息文字</div>
         </div>
     );
 }

@@ -12,26 +12,26 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": false,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noImplicitAny": false,
-    "strictNullChecks": false,
     "experimentalDecorators": true,
     //"noEmit": true,
     "jsx": "react",
     "baseUrl": "./src/index",
     "paths": {
-      "@components/*": ["components/*"],
-      "@services/*": ["services/*"],
       "@views/*": ["views/*"],
-      "@locales/*": ["locales/*"],
+      "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
+      "@locales/*": ["locales/*"],
       "@utils/*": ["utils/*"],
-      "@assets/*": ["assets/*"],
+      "@services/*": ["services/*"],
+      "Http": ["services/index"],
       "@theme": ["theme.less"]
-  },
+    }
   },
   "files": [
     "./node_modules/tsx-control-statements/index.d.tsx"
