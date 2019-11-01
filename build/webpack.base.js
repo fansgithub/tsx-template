@@ -23,7 +23,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(projectRoot, "dist"),
-    filename: "[name]_[chunkhash:8].js"
+    filename: "js/[name]_[chunkhash:8].js"
   },
   module: {
     rules: [
@@ -46,7 +46,12 @@ module.exports = {
       {
         test: /.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
           "css-loader",
           {
             loader: "postcss-loader",
@@ -68,7 +73,7 @@ module.exports = {
             loader: "url-loader",
             options: {
               limit: 40 * 1024,
-              outputPath: "./img"
+              outputPath: "img",
             }
           }
         ]
@@ -79,7 +84,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "[name]_[hash:8][ext]"
+              name: "font/[name]_[hash:8][ext]"
             }
           }
         ]
@@ -97,7 +102,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name]_[contenthash:8].css"
+      filename: "css/[name]_[contenthash:8].css"
     }),
     new FriendlyErrorsWebpackPlugin(),
     new webpack.DllReferencePlugin({
