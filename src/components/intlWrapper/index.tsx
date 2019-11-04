@@ -7,7 +7,7 @@ import { Locale } from 'antd/lib/locale-provider';
 import { useOnMount } from '@utils/reactExt';
 import { setCookie } from '@utils/index';
 import { COOKIE_KEYS } from '@constants/index';
-import PageLoading from '@components/PageLoading';
+import PageLoading from '@components/pageLoading';
 import { SUPPOER_LOCALES, LOCALES_KEYS, getLocaleLoader } from '@locales/loader';
 
 import './index.less';

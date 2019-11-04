@@ -21,3 +21,9 @@ declare interface StringObject {
 declare interface NumberObject {
     [propName: string]: number;
 }
+
+declare interface RouterConfigModel {
+    path: string;
+    component?: any;
+    auth?: boolean;
+}

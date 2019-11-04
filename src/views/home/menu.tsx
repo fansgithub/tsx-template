@@ -54,12 +54,11 @@ class MyMenu extends ComponentExt<any, any> {
     componentWillMount() {
         this.api.auth
             .getFunInfoByUserName({
-                username: '',
+                userName: sessionStorage.getItem('username'),
             })
-            .then((res: any) => {
-                //res = require('./menu.json')
+            .then((data) => {
                 //默认选中菜单的逻辑
-                const menus = this.filterMenu(res.data);
+                const menus = this.filterMenu(data);
                 menus.forEach((item) => {
                     rootSubmenuKeys.push(item.id);
                 });

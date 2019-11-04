@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig as _AxiosRequestConfig, Method } from 'axios';
 import qs from 'qs';
 import { message } from 'antd';
+import { LOGIN_AUTHORIZATION } from '@constants/index';
 
 export interface AxiosRequestConfig extends _AxiosRequestConfig {
     startTime?: Date;
@@ -30,7 +31,7 @@ const methods: Method[] = ['get', 'post', 'put', 'delete'];
 
 let authTimer: any = null;
 
-const isSuccess = (res) => res.errCode === 0;
+const isSuccess = (res) => res.code === 'CODE_0000';
 const resFormat = (res) => res.response || res.data || {};
 
 methods.forEach((v: Method) => {
@@ -39,28 +40,33 @@ methods.forEach((v: Method) => {
             method: v,
             url,
             baseURL: baseUrl || DEFAULTCONFIG.baseURL,
-            headers: { Authorization: `Bearer ` },
+            headers: { Authorization: `Bearer ${sessionStorage.getItem(LOGIN_AUTHORIZATION)}` },
         };
         const instance = axios.create(DEFAULTCONFIG);
-        // Add a request interceptor
+        //对请求数据做处理
         instance.interceptors.request.use(
             (cfg) => {
-                cfg.params = { ...cfg.params, ts: Date.now() / 1000 };
+                cfg.params = {
+                    ...cfg.params,
+                    ts: Date.now() / 1000,
+                };
                 return cfg;
             },
             (error) => Promise.reject(error)
         );
-        // Add a response interceptor
+        //对响应数据做处理
         instance.interceptors.response.use(
-            (response) => {
-                const rdata =
-                    typeof response.data === 'object' && !isNaN(response.data.length)
-                        ? response.data[0]
-                        : response.data;
+            (response: any) => {
+                console.log('success--------');
+                const rdata = response.data;
+                //处理登录接口
+                if (response.config.url === '/oauth/token') {
+                    return rdata;
+                }
                 if (!isSuccess(rdata)) {
                     return Promise.reject({
                         msg: rdata.msg,
-                        errCode: rdata.errCode,
+                        errCode: rdata.code,
                         type: HTTPERROR[HTTPERROR.LOGICERROR],
                         config: response.config,
                     });
@@ -68,6 +74,11 @@ methods.forEach((v: Method) => {
                 return resFormat(rdata);
             },
             (error) => {
+                if (error.response.config.url === '/oauth/token') {
+                    message.destroy();
+                    message.error(error.response.data.msg);
+                    return;
+                }
                 if (TOKENERROR.includes(error.response.status)) {
                     message.destroy();
                     message.error('Authentication failure, Please relogin!');
@@ -78,7 +89,7 @@ methods.forEach((v: Method) => {
                     return;
                 }
                 return Promise.reject({
-                    msg: error.response.statusText || error.message || 'network error',
+                    msg: error.response.statusText || 'network error',
                     type: /^timeout of/.test(error.message)
                         ? HTTPERROR[HTTPERROR.TIMEOUTERROR]
                         : HTTPERROR[HTTPERROR.NETWORKERROR],
@@ -98,11 +109,10 @@ methods.forEach((v: Method) => {
             .request(axiosConfig)
             .then((res) => res)
             .catch((err) => {
+                console.log('catch error----', err);
                 message.destroy();
                 message.error(err.response || err.msg || err.stack || 'unknown error');
-                return Promise.reject(
-                    axiosConfig.url.includes('autoScript.set') ? { err } : { err, stack: err.msg || err.stack || '' }
-                );
+                return Promise.reject({ err });
             });
     };
 });

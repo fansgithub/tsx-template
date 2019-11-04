@@ -19,7 +19,6 @@
     "isolatedModules": false,
     "noImplicitAny": false,
     "experimentalDecorators": true,
-    //"noEmit": true,
     "jsx": "react",
     "baseUrl": "./src",
     "paths": {

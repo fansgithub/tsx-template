@@ -30,6 +30,7 @@ module.exports = {
         "eqeqeq": ['warn', 'always'],
         "prefer-const": ['error', {"destructuring": "all", "ignoreReadBeforeAssign": true}],
         '@typescript-eslint/indent': ['error', 4, { VariableDeclarator: 4, SwitchCase: 1 }],
+        '@typescript-eslint/camelcase': 0,
         '@typescript-eslint/no-unused-vars': 0,
         "@typescript-eslint/interface-name-prefix": 0,
         "@typescript-eslint/explicit-member-accessibility": 0,

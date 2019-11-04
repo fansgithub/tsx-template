@@ -1,3 +1,6 @@
+import * as CryptoJS from 'crypto-js';
+import { LOGIN_AUTHORIZATION } from '@constants/index';
+
 /**
  * setCookie
  *
@@ -6,7 +9,7 @@
  * @param {string} value
  * @param {number} [expiredays=365]
  */
-export function setCookie(name: string, value: string, expiredays = 365) {
+function setCookie(name: string, value: string, expiredays = 365) {
     const exdate = new Date();
     exdate.setDate(exdate.getDate() + expiredays);
     document.cookie = `${name}=${escape(value)};expires=${exdate.toUTCString()}`;
@@ -19,7 +22,7 @@ export function setCookie(name: string, value: string, expiredays = 365) {
  * @param {string} name
  * @returns
  */
-export function getCookie(name: string) {
+function getCookie(name: string) {
     if (document.cookie.length > 0) {
         let cStart = document.cookie.indexOf(name + '=');
         if (cStart !== -1) {
@@ -40,7 +43,7 @@ export function getCookie(name: string) {
  * @export
  * @param {string} name
  */
-export function clearCookie(name: string) {
+function clearCookie(name: string) {
     setCookie(name, '');
 }
 
@@ -51,7 +54,7 @@ export function clearCookie(name: string) {
  * @param {string} name
  * @returns {string}
  */
-export function queryURL(name: string): string {
+function queryURL(name: string): string {
     const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
     const result = window.location.search.substr(1).match(reg);
     if (result !== null) {
@@ -60,9 +63,32 @@ export function queryURL(name: string): string {
     return null;
 }
 
-export default {
-    setCookie,
-    getCookie,
-    clearCookie,
-    queryURL,
-};
+const AuthTokenKey = 'summitsummitsumm'; // AES密钥
+const AuthTokenIv = 'summitsummitsumm'; // AES向量
+/**
+ * 加密方法
+ * padding：填充
+ * mode: 加密模式
+ * 注意：加密时对格式要求异常严格，必须一模一样才能保证加密之后code一致
+ *
+ * @export
+ * @param {*} password
+ * @returns
+ */
+function Encrypt(password) {
+    const encrypted = CryptoJS.AES.encrypt(password, CryptoJS.enc.Latin1.parse(AuthTokenKey), {
+        iv: CryptoJS.enc.Latin1.parse(AuthTokenIv),
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.ZeroPadding,
+    });
+    return encrypted.toString();
+}
+
+/* 
+    验证当前用户是否登录
+*/
+function getLoginStatus() {
+    return sessionStorage.getItem(LOGIN_AUTHORIZATION) !== null;
+}
+
+export { setCookie, getCookie, clearCookie, queryURL, Encrypt, getLoginStatus };

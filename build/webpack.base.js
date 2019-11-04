@@ -9,6 +9,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
+const statements = require('tsx-control-statements').default;
+
 const projectRoot = process.cwd();
 const gitRevisionCallback = (str, err) => {
   if (err) {
@@ -34,7 +36,10 @@ module.exports = {
             loader: "babel-loader"
           },
           {
-            loader: "ts-loader"
+            loader: "ts-loader",
+            options: {
+              getCustomTransformers: () => ({ before: [statements()] })
+            }
           }
         ],
         exclude: /node_modules/

@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.less';
 
-const Error = () => (
+const ErrorPage = () => (
     <div className="component-error">
         <div className="emoji">😭</div>
         <p className="title">Ooooops!</p>
@@ -9,4 +9,4 @@ const Error = () => (
     </div>
 );
 
-export default Error;
+export default ErrorPage;

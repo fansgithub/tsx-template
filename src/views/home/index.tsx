@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Layout } from 'antd';
 import Menus from './menu';
+import RouterAuth from '@components/routerAuth';
+import homeRouterConfig from './routerConfig';
 
 const { Sider, Content } = Layout;
-import { Redirect, Route, Switch } from 'react-router-dom';
-
-const SystemManage = React.lazy(() => import(/* webpackChunkName: "systemManage" */ '@views/systemManage'));
 
 interface IProps {
     match: any;
@@ -15,7 +14,7 @@ interface IState {
     isShow: boolean;
 }
 
-export default class Admin extends React.Component<IProps, IState> {
+export default class Home extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
@@ -55,10 +54,7 @@ export default class Admin extends React.Component<IProps, IState> {
                 </Sider>
                 <Layout className="mo-parent">
                     <Content className="mo-content" id="js-page-content">
-                        <Switch>
-                            <Route path="/systemManage" component={SystemManage} />
-                            <Redirect to="/systemManage" />
-                        </Switch>
+                        <RouterAuth config={homeRouterConfig} />
                     </Content>
                 </Layout>
             </Layout>
