@@ -7,4 +7,7 @@ export default {
     getFunInfoByUserName(data: object): Promise<any> {
         return Http.get('cbb-userauth/function/getFunInfoByUserName', data || {});
     },
+    updatePassword(data: object): Promise<any> {
+        return Http.get('cbb-userauth/updatePassword', data || {});
+    },
 };

@@ -6,6 +6,10 @@ declare let process: {
     };
 };
 
+declare let module: {
+    hot: any;
+};
+
 declare interface PlainObject {
     [propName: string]: any;
 }

@@ -19,3 +19,5 @@ export enum LOCALSTORAGE_KEYS {
 export const LOGIN_CATEGORY = ['user', 'admin'];
 
 export const LOGIN_AUTHORIZATION = 'Authorization';
+
+export const SYSTEM_NAME = 'tsx template';

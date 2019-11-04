@@ -29,7 +29,8 @@
       "@utils/*": ["utils/*"],
       "@services/*": ["services/*"],
       "Http": ["services/index"],
-      "@theme": ["theme.less"]
+      "@theme": ["theme.less"],
+      "@store/*": ["store/*"],
     }
   },
   "files": [

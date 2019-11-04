@@ -2,6 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import { Form, Icon, Input, Button } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
+import { SYSTEM_NAME } from '@constants/index';
 import loginStore from './store';
 import './index.less';
 
@@ -33,7 +34,7 @@ function Login({ form }: IProps) {
         <div className="login">
             <Form onSubmit={submit} className="login-form">
                 <div className="logoBox">
-                    <h2 className="title">React Template</h2>
+                    <h2 className="title">{SYSTEM_NAME}</h2>
                 </div>
                 <FormItem hasFeedback>
                     {getFieldDecorator('username', {

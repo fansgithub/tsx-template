@@ -3,7 +3,6 @@ import { Icon, Menu } from 'antd';
 import { NavLink, withRouter } from 'react-router-dom';
 import pathToRegexp from 'path-to-regexp';
 import { ComponentExt } from '@utils/reactExt';
-
 const SubMenu = Menu.SubMenu;
 const rootSubmenuKeys: any = [];
 
@@ -61,12 +60,6 @@ class MyMenu extends ComponentExt<any, any> {
                 const menus = this.filterMenu(data);
                 menus.forEach((item) => {
                     rootSubmenuKeys.push(item.id);
-                });
-                menus.push({
-                    name: '退出登录',
-                    isEnabled: 1,
-                    furl: 'loginOut',
-                    imgUlr: 'logout',
                 });
                 const hash = location.hash;
                 const openKeys: string[] = [];
@@ -159,6 +152,12 @@ class MyMenu extends ComponentExt<any, any> {
         const dom = this.renderMenu(menus);
         return (
             <Menu
+                style={{
+                    height: 'calc(100vh - 66px)',
+                    borderRight: 0,
+                    overflow: 'auto',
+                    paddingBottom: '48px',
+                }}
                 theme="dark"
                 onOpenChange={this.onOpenChange}
                 openKeys={this.state.openKeys}

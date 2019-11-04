@@ -1,37 +1,46 @@
 import * as React from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { observer } from 'mobx-react';
 import PageLoading from '@components/pageLoading';
 import IntlWrapper from '@components/intlWrapper';
 import Layout from '@components/layout';
 import LoginPage from '@views/login';
-import ErrorPage from '@components/notFound';
-import { getLoginStatus } from '@utils/index';
-import CheckLogin from './checkLoginStatus';
+import NotFound from '@components/notFound';
+import store from '@store/app';
 import './app.less';
 
 const authPath = '/login';
 
-function App() {
-    console.log('app render');
-    const isLogin = getLoginStatus();
-    return (
-        <React.Suspense fallback={PageLoading}>
-            <IntlWrapper>
-                <div className="appWrapper">
-                    <Router>
-                        <CheckLogin isLogin={true}>
+@observer
+class App extends React.Component {
+    render() {
+        return (
+            <React.Suspense fallback={PageLoading}>
+                <IntlWrapper>
+                    <div className="appWrapper">
+                        <Router>
                             <Switch>
-                                <Route exact path="/" render={() => <Redirect to="/layout/dashboard" push />} />
+                                <Route
+                                    exact
+                                    path="/"
+                                    render={() => {
+                                        if (store.isLogin) {
+                                            return <Redirect to="/layout/dashboard" push />;
+                                        } else {
+                                            return <Redirect to="/login" push />;
+                                        }
+                                    }}
+                                />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/layout" component={Layout} />
-                                <Route component={ErrorPage} />
+                                <Route component={NotFound} />
                             </Switch>
-                        </CheckLogin>
-                    </Router>
-                </div>
-            </IntlWrapper>
-        </React.Suspense>
-    );
+                        </Router>
+                    </div>
+                </IntlWrapper>
+            </React.Suspense>
+        );
+    }
 }
 
 export default App;
