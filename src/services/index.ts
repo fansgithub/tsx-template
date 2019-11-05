@@ -1,7 +1,8 @@
 import axios, { AxiosRequestConfig as _AxiosRequestConfig, Method } from 'axios';
 import qs from 'qs';
 import { message } from 'antd';
-import { LOGIN_AUTHORIZATION } from '@constants/index';
+import { COOKIE_KEYS } from '@constants/index';
+import { getCookie } from '@utils/index';
 
 export interface AxiosRequestConfig extends _AxiosRequestConfig {
     startTime?: Date;
@@ -40,7 +41,7 @@ methods.forEach((v: Method) => {
             method: v,
             url,
             baseURL: baseUrl || DEFAULTCONFIG.baseURL,
-            headers: { Authorization: `Bearer ${sessionStorage.getItem(LOGIN_AUTHORIZATION)}` },
+            headers: { Authorization: `Bearer ${getCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION)}` },
         };
         const instance = axios.create(DEFAULTCONFIG);
         //对请求数据做处理
@@ -57,7 +58,6 @@ methods.forEach((v: Method) => {
         //对响应数据做处理
         instance.interceptors.response.use(
             (response: any) => {
-                console.log('success--------');
                 const rdata = response.data;
                 //处理登录接口
                 if (response.config.url === '/oauth/token') {

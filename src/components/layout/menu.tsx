@@ -3,6 +3,7 @@ import { Icon, Menu } from 'antd';
 import { NavLink, withRouter } from 'react-router-dom';
 import pathToRegexp from 'path-to-regexp';
 import { ComponentExt } from '@utils/reactExt';
+import { getCookie } from '@utils/index';
 const SubMenu = Menu.SubMenu;
 const rootSubmenuKeys: any = [];
 
@@ -53,7 +54,7 @@ class MyMenu extends ComponentExt<any, any> {
     componentWillMount() {
         this.api.auth
             .getFunInfoByUserName({
-                userName: sessionStorage.getItem('username'),
+                userName: getCookie('username'),
             })
             .then((data) => {
                 //默认选中菜单的逻辑

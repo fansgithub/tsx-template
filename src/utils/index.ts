@@ -1,5 +1,5 @@
 import * as CryptoJS from 'crypto-js';
-import { LOGIN_AUTHORIZATION } from '@constants/index';
+import { COOKIE_KEYS } from '@constants/index';
 
 /**
  * setCookie
@@ -32,6 +32,8 @@ function getCookie(name: string) {
                 cEnd = document.cookie.length;
             }
             return unescape(document.cookie.substring(cStart, cEnd));
+        } else {
+            return '';
         }
     }
     return '';
@@ -88,7 +90,7 @@ function Encrypt(password) {
     验证当前用户是否登录
 */
 function getLoginStatus() {
-    return sessionStorage.getItem(LOGIN_AUTHORIZATION) !== null;
+    return getCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION) !== '';
 }
 
 export { setCookie, getCookie, clearCookie, queryURL, Encrypt, getLoginStatus };

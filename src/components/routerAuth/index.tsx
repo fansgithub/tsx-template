@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import { LOGIN_AUTHORIZATION } from '@constants/index';
+import { getLoginStatus } from '@utils/index';
 
 /* 
     路由守卫组件，需要实现的功能
@@ -15,7 +15,7 @@ class FrontendAuth extends React.Component<any> {
     render() {
         const { location, config } = this.props;
         const { pathname } = location;
-        const isLogin = sessionStorage.getItem(LOGIN_AUTHORIZATION);
+        const isLogin = getLoginStatus();
 
         // 如果该路由不用进行权限校验，登录状态下登陆页除外
         // 因为登陆后，无法跳转到登陆页

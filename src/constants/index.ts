@@ -1,23 +1,13 @@
 export enum COOKIE_KEYS {
     LANG = 'lang',
+    LOGIN_AUTHORIZATION = 'Authorization',
 }
 
-export enum LOCALSTORAGE_KEYS {
-    USERINFO = 'userInfo',
-    NAV_OPEN_KEYS = 'navOpenKeys',
-    SIDE_BAR_THEME = 'sideBarTheme',
-    SIDE_BAR_COLLAPSED = 'sideBarCollapsed',
+export enum LOCALSTORAGE_KEYS {}
 
-    // about socket
-    SOCKET_URL = 'socketUrl',
-    SOCKET_TYPE = 'socketType',
-    SOCKET_IO_EVENTS = 'socketIOEvents',
-    DATA_FORMAT = 'dataFormat',
-    NOT_SUPPORT_POLLING = 'notSupportPolling',
+/* 系统的灵活配置 */
+export enum CONFIG_KEYS {
+    //是否启用国际化多语言组件
+    ENABLE_INTL = 0,
+    SYSTEM_NAME = 'tsx template',
 }
-
-export const LOGIN_CATEGORY = ['user', 'admin'];
-
-export const LOGIN_AUTHORIZATION = 'Authorization';
-
-export const SYSTEM_NAME = 'tsx template';

@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Menu, Dropdown, Icon } from 'antd';
 import UpdatePassword from '../updatePassword';
-import { SYSTEM_NAME } from '@constants/index';
+import { CONFIG_KEYS } from '@constants/index';
+import { getCookie } from '@utils/index';
 
 interface IState {
     updatePwdModal: boolean;
@@ -48,12 +49,12 @@ class Header extends Component<any, IState> {
             <Fragment>
                 <div className="header-title">
                     <p></p>
-                    <span>{SYSTEM_NAME}</span>
+                    <span>{CONFIG_KEYS.SYSTEM_NAME}</span>
                 </div>
                 <div className="header-right">
                     <Dropdown overlay={menu} placement="bottomCenter" overlayStyle={{ top: 66 }}>
                         <a className="ant-dropdown-link" href="javascript:void(0)">
-                            欢迎您，{sessionStorage.getItem('username')}
+                            欢迎您，{getCookie('username')}
                             <Icon type="down" />
                         </a>
                     </Dropdown>
