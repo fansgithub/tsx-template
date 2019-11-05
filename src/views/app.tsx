@@ -2,14 +2,16 @@ import * as React from 'react';
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import PageLoading from '@components/pageLoading';
-import IntlWrapper from '@components/intlWrapper';
+import Intl from '@components/intlWrapper';
 import Layout from '@components/layout';
 import LoginPage from '@views/login';
 import NotFound from '@components/notFound';
 import store from '@store/app';
+import { CONFIG_KEYS } from '@constants/index';
 import './app.less';
 
 const authPath = '/login';
+const IntlWrapper = CONFIG_KEYS.ENABLE_INTL ? Intl : React.Fragment;
 
 @observer
 class App extends React.Component {
