@@ -19,10 +19,10 @@ const devConfig = {
     host: '0.0.0.0',
     proxy: {
       '/oauth/token': {
-				target: 'http://192.168.140.197:45001',
+				target: 'http://192.168.140.200:45001',
 			},
 			'/api': {
-				target: 'http://192.168.140.197:45001',
+				target: 'http://192.168.140.200:45001',
 			},
     }
   },

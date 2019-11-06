@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Layout } from 'antd';
 import RouterAuth from '../../router/router';
-import Menus from './menu';
+import Menus from './menu/index';
 import Top from './top';
 import './index.less';
 

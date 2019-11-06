@@ -7,7 +7,6 @@ export default [
         exact: true,
         permissions: ['admin', 'user'],
         pageTitle: '',
-        breadcrumb: ['/outlets'],
         requiresAuth: false,
         component: lazy(() => import('@views/login')),
         meta: {
@@ -20,7 +19,6 @@ export default [
         exact: true,
         permissions: ['admin', 'user'],
         pageTitle: '',
-        breadcrumb: ['/outlets'],
         requiresAuth: false,
         component: lazy(() => import('@views/notFound')),
         meta: {

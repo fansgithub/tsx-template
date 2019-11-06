@@ -93,4 +93,9 @@ function getLoginStatus() {
     return getCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION) !== '';
 }
 
-export { setCookie, getCookie, clearCookie, queryURL, Encrypt, getLoginStatus };
+/* 退出登录 */
+function loginOut() {
+    clearCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION);
+}
+
+export { setCookie, getCookie, clearCookie, queryURL, Encrypt, getLoginStatus, loginOut };

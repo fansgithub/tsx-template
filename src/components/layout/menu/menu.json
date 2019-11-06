@@ -1,0 +1,69 @@
+[
+    {
+        "id": "fec84b1809764a0a811c0c18e7869516",
+        "pid": "root",
+        "name": "首页",
+        "fdesc": 1,
+        "isEnabled": 1,
+        "furl": "/layout/dashboard",
+        "imgUlr": "environment",
+        "note": "",
+        "superfun": "0"
+    },
+    {
+        "id": "3e0183a912f949779d4157b3241455f3",
+        "pid": "root",
+        "name": "系统管理1",
+        "fdesc": 5,
+        "isEnabled": 1,
+        "furl": "/layout/system1",
+        "imgUlr": "setting",
+        "note": "",
+        "superfun": "0",
+        "children": [{
+            "id": "45a2d1f0dac741739884e4f0b60d747c",
+            "pid": "3e0183a912f949779d4157b3241455f3",
+            "name": "用户管理1",
+            "fdesc": 1,
+            "isEnabled": 1,
+            "furl": "/layout/system1/user1",
+            "imgUlr": "",
+            "note": "",
+            "superfun": "0",
+            "children": [{
+                "id": "45a2d1f0dac741739884e4f0b60d7444",
+                "pid": "45a2d1f0dac741739884e4f0b60d747c",
+                "name": "用户管理1-1",
+                "fdesc": 1,
+                "isEnabled": 1,
+                "furl": "/layout/system1/user1/1",
+                "imgUlr": "",
+                "note": "",
+                "superfun": "0"
+            }]
+        }]
+    },
+    {
+        "id": "3e0183a912f949779d4157b3241455ff",
+        "pid": "root",
+        "name": "系统管理",
+        "fdesc": 5,
+        "isEnabled": 1,
+        "furl": "/layout/system",
+        "imgUlr": "setting",
+        "note": "",
+        "superfun": "0",
+        "children": [{
+            "id": "45a2d1f0dac741739884e4f0b60d747b",
+            "pid": "3e0183a912f949779d4157b3241455ff",
+            "name": "用户管理",
+            "fdesc": 1,
+            "isEnabled": 1,
+            "furl": "/layout/system/user",
+            "imgUlr": "",
+            "note": "",
+            "superfun": "0",
+            "children": null
+        }]
+    }
+]

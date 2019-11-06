@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Menu, Dropdown, Icon } from 'antd';
 import UpdatePassword from '../updatePassword';
 import { CONFIG_KEYS } from '@constants/index';
-import { getCookie } from '@utils/index';
+import { getCookie, loginOut } from '@utils/index';
 
 interface IState {
     updatePwdModal: boolean;
@@ -29,7 +30,10 @@ class Header extends Component<any, IState> {
         }
     };
 
-    logOut = async () => {};
+    logOut = async () => {
+        loginOut();
+        this.props.history.replace('/login');
+    };
 
     handelModal = () => {
         this.setState({
@@ -69,4 +73,4 @@ class Header extends Component<any, IState> {
     }
 }
 
-export default Header;
+export default withRouter(Header);

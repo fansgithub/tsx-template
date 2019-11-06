@@ -43,6 +43,7 @@ methods.forEach((v: Method) => {
             baseURL: baseUrl || DEFAULTCONFIG.baseURL,
             headers: { Authorization: `Bearer ${getCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION)}` },
         };
+        console.log(getCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION));
         const instance = axios.create(DEFAULTCONFIG);
         //对请求数据做处理
         instance.interceptors.request.use(

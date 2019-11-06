@@ -10,7 +10,6 @@ import store from '@store/app';
 import { CONFIG_KEYS } from '@constants/index';
 import './app.less';
 
-const authPath = '/login';
 const IntlWrapper = CONFIG_KEYS.ENABLE_INTL ? Intl : React.Fragment;
 
 @observer

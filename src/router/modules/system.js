@@ -7,8 +7,7 @@ export default [
     exact: true,
     permissions: [ 'admin', 'user' ],
     pageTitle: '',
-    breadcrumb: [],
-    requiresAuth: false,
+    requiresAuth: true,
     meta: {
       title: '系统管理'
     },
@@ -20,9 +19,8 @@ export default [
         exact: true,
         permissions: [ 'admin', 'user' ],
         pageTitle: '',
-        breadcrumb: [],
         component: lazy(() =>import('@views/system/user')),
-        requiresAuth: false,
+        requiresAuth: true,
         meta: {
           title: '用户管理'
         }
@@ -34,9 +32,8 @@ export default [
         exact: true,
         permissions: [ 'admin', 'user' ],
         pageTitle: '',
-        breadcrumb: [],
         component: lazy(() =>import('@views/system/role')),
-        requiresAuth: false,
+        requiresAuth: true,
         meta: {
           title: '角色管理'
         }

@@ -7,8 +7,7 @@ export default [
         exact: true,
         permissions: ['admin', 'user'],
         pageTitle: '',
-        breadcrumb: [],
-        requiresAuth: false,
+        requiresAuth: true,
         component: lazy(() => import('@views/dashboard')),
         meta: {
             title: '首页',
