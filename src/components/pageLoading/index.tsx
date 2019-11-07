@@ -5,7 +5,7 @@ import './index.less';
 function PageLoading() {
     return (
         <div className="componet-page-loading">
-            <Spin className="spin" />
+            <Spin className="spin" tip="页面加载中..." />
         </div>
     );
 }

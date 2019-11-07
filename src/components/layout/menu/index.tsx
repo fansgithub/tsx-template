@@ -1,11 +1,10 @@
 import React from 'react';
 import { Icon, Menu } from 'antd';
-import { map, get, find, findIndex } from 'lodash';
+import { map } from 'lodash';
 import { NavLink, withRouter } from 'react-router-dom';
-import pathToRegexp from 'path-to-regexp';
 import { ComponentExt } from '@utils/reactExt';
 import { getCookie } from '@utils/index';
-import { isDeepStrictEqual } from 'util';
+import { CONFIG_KEYS } from '@constants/index';
 const SubMenu = Menu.SubMenu;
 
 class MyMenu extends ComponentExt<any, any> {
@@ -19,8 +18,7 @@ class MyMenu extends ComponentExt<any, any> {
         };
     }
 
-    menuOpenKey = (menus) => {
-        const pathname = this.props.location.pathname;
+    menuOpenKey = (menus, pathname = this.props.location.pathname) => {
         let result;
         for (let i = 0; i < menus.length; i++) {
             result = this.getPathById(pathname, menus[i]);
@@ -94,9 +92,25 @@ class MyMenu extends ComponentExt<any, any> {
                 const { openKeys, selectedKeys } = this.menuOpenKey(menus);
                 this.setState({
                     selectedKeys,
-                    openKeys,
+                    openKeys: openKeys,
                 });
             });
+    }
+
+    unListen: any = null;
+    componentDidMount() {
+        const { listen } = this.props.history;
+        this.unListen = listen((location) => {
+            const { openKeys, selectedKeys } = this.menuOpenKey(this.state.menus, location.pathname);
+            this.setState({
+                selectedKeys,
+                openKeys: openKeys,
+            });
+        });
+    }
+
+    componentWillUnmount() {
+        this.unListen();
     }
 
     renderMenu = (menus) => {
@@ -131,15 +145,18 @@ class MyMenu extends ComponentExt<any, any> {
 
     //点击菜单，收起其他展开菜单
     onOpenChange = (openKeys) => {
-        // this.setState({
-        //     openKeys
-        // })
-        const latestOpenKey = openKeys.find((key) => this.state.openKeys.indexOf(key) === -1);
-        if (this.state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-            this.setState({ openKeys });
+        if (CONFIG_KEYS.AUTO_COLLAPSE) {
+            const latestOpenKey = openKeys.find((key) => this.state.openKeys.indexOf(key) === -1);
+            if (this.state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+                this.setState({ openKeys });
+            } else {
+                this.setState({
+                    openKeys: latestOpenKey ? [latestOpenKey] : [],
+                });
+            }
         } else {
             this.setState({
-                openKeys: latestOpenKey ? [latestOpenKey] : [],
+                openKeys,
             });
         }
     };
@@ -156,18 +173,12 @@ class MyMenu extends ComponentExt<any, any> {
         const dom = this.renderMenu(menus);
         return (
             <Menu
-                style={{
-                    height: 'calc(100vh - 66px)',
-                    borderRight: 0,
-                    overflow: 'auto',
-                    paddingBottom: '48px',
-                }}
-                theme="dark"
+                theme={CONFIG_KEYS.MENU_THEME}
                 onOpenChange={this.onOpenChange}
-                openKeys={this.state.openKeys}
+                openKeys={this.props.isCollapsed ? [] : this.state.openKeys}
                 onClick={this.clickMenuItem}
                 selectedKeys={this.state.selectedKeys}
-                mode="inline">
+                mode={CONFIG_KEYS.MENU_MODE}>
                 {dom}
             </Menu>
         );

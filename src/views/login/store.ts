@@ -13,8 +13,8 @@ class AuthStore extends StoreExt {
             const res = await this.api.auth.login(params);
             if (res) {
                 appStore.isLogin = true;
-                setCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION, res.access_token);
-                setCookie('username', params.username);
+                setCookie(COOKIE_KEYS.LOGIN_AUTHORIZATION, res.access_token, res.expires_in);
+                setCookie('username', params.username, res.expires_in);
                 location.href = '#/';
             }
         } catch (err) {

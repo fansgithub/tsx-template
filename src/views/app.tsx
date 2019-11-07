@@ -16,7 +16,7 @@ const IntlWrapper = CONFIG_KEYS.ENABLE_INTL ? Intl : React.Fragment;
 class App extends React.Component {
     render() {
         return (
-            <React.Suspense fallback={PageLoading}>
+            <React.Suspense fallback={<PageLoading />}>
                 <IntlWrapper>
                     <div className="appWrapper">
                         <Router>

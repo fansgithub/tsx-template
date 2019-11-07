@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Layout } from 'antd';
+import { CONFIG_KEYS } from '@constants/index';
+import PageLoading from '@components/pageLoading';
 import RouterAuth from '../../router/router';
 import Menus from './menu/index';
 import Top from './top';
@@ -33,12 +35,18 @@ export default class Home extends React.Component<IProps, IState> {
                     <Top />
                 </Header>
                 <Layout>
-                    <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} theme="dark">
+                    <Sider
+                        collapsible
+                        collapsed={this.state.collapsed}
+                        onCollapse={this.onCollapse}
+                        theme={CONFIG_KEYS.MENU_THEME}>
                         <Menus isCollapsed={this.state.collapsed} />
                     </Sider>
                     <Layout className="mo-parent">
                         <Content className="mo-content" id="js-page-content">
-                            <RouterAuth />
+                            <React.Suspense fallback={<PageLoading />}>
+                                <RouterAuth />
+                            </React.Suspense>
                         </Content>
                     </Layout>
                 </Layout>

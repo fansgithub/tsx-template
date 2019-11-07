@@ -7,11 +7,11 @@ import { COOKIE_KEYS } from '@constants/index';
  * @export
  * @param {string} name
  * @param {string} value
- * @param {number} [expiredays=365]
+ * @param {number} [expireSeconds=600]
  */
-function setCookie(name: string, value: string, expiredays = 365) {
+function setCookie(name: string, value: string, expireSeconds = 600) {
     const exdate = new Date();
-    exdate.setDate(exdate.getDate() + expiredays);
+    exdate.setSeconds(exdate.getSeconds() + expireSeconds);
     document.cookie = `${name}=${escape(value)};expires=${exdate.toUTCString()}`;
 }
 
