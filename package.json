@@ -26,11 +26,11 @@
       "git add"
     ]
   },
-  "config": {
-    "port": 10000
-  },
   "keywords": [],
   "author": "",
+  "repository": {
+    "url": ""
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
