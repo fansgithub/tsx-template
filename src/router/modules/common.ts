@@ -20,7 +20,7 @@ export default [
         permissions: ['admin', 'user'],
         pageTitle: '',
         requiresAuth: false,
-        component: lazy(() => import('@views/notFound')),
+        component: lazy(() => import('@components/notFound')),
         meta: {
             title: '404',
         },

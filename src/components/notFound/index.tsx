@@ -3,7 +3,7 @@ import React from 'react';
 import './index.less';
 
 const NotFound = () => (
-    <div className="page404">
+    <div className="component-page-not-found">
         <section>
             <h1>404</h1>
             <p>
