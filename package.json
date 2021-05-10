@@ -101,7 +101,7 @@
     "koa-logger": "^3.2.1",
     "koa-router-decors": "^4.0.1",
     "koa-xtime": "^1.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^0.8.0",
     "mobx": "^5.14.2",
     "mobx-react": "^6.1.4",
